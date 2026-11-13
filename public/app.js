@@ -109,9 +109,9 @@ const toast = document.querySelector('#toast'),
 let notifications = 0;
 document.querySelector('#notify').addEventListener('click', () => {
   toast.textContent =
-    'Example ' +
+    'Demonstration ' +
     ++notifications +
-    ' saved locally in this demonstration. No network request was made.';
+    ' completed. No information was saved and no network request was made.';
   dismiss.hidden = false;
 });
 dismiss.addEventListener('click', () => {
