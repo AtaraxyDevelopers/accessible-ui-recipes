@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Accessible UI Recipes · Ataraxy Developers</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to examples</a>
+    <header>
+      <a class="brand" href="/"><span class="mark" aria-hidden="true">AD</span>Ataraxy Developers</a
+      ><span class="pill">OPEN SOURCE / v0.1</span>
+    </header>
+    <main id="main">
+      <section class="intro">
+        <p class="eyebrow">BUILT FOR PEOPLE</p>
+        <h1>Good interfaces<br />include everyone.</h1>
+        <p class="lead">
+          Five small patterns. Native HTML, considered keyboard behavior, and source you can make
+          your own.
+        </p>
+        <p class="hint">Try this page with Tab, Shift + Tab, arrow keys, and Escape.</p>
+      </section>
+      <div class="grid">
+        <section class="card">
+          <p class="number">01 / FORMS</p>
+          <h2>Clear feedback</h2>
+          <p>Labels stay visible. Errors point to what needs attention.</p>
+          <form id="signup" novalidate>
+            <label for="name">Name</label
+            ><input
+              id="name"
+              name="name"
+              autocomplete="name"
+              aria-describedby="name-error"
+              required
+            />
+            <p id="name-error" class="error"></p>
+            <label for="email">Email</label
+            ><input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              aria-describedby="email-error"
+              required
+            />
+            <p id="email-error" class="error"></p>
+            <button type="submit">Try the form <span aria-hidden="true">→</span></button>
+            <p id="form-status" role="status"></p>
+          </form>
+        </section>
+        <section class="card">
+          <p class="number">02 / DIALOGS</p>
+          <h2>Focus where it matters</h2>
+          <p>
+            A native modal keeps keyboard focus inside and returns it to the opener when closed.
+          </p>
+          <button id="open-dialog" class="secondary">Open example dialog</button>
+          <dialog id="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-copy">
+            <h2 id="dialog-title">A little space to focus.</h2>
+            <p id="dialog-copy">
+              Press Escape to close, or use the button below. This example saves no data.
+            </p>
+            <form method="dialog"><button autofocus>Close dialog</button></form>
+          </dialog>
+          <div class="note">Native dialog semantics, without a custom focus trap.</div>
+        </section>
+        <section class="card">
+          <p class="number">03 / MENUS</p>
+          <h2>Actions within reach</h2>
+          <p>Open the menu, then use arrow keys to explore its actions.</p>
+          <div class="menu-wrap">
+            <button
+              id="menu-button"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="menu"
+              class="secondary"
+            >
+              Document actions <span aria-hidden="true">↓</span>
+            </button>
+            <div id="menu" role="menu" aria-label="Document actions" hidden>
+              <button type="button" role="menuitem" tabindex="-1">Copy example</button
+              ><button type="button" role="menuitem" tabindex="-1">Save example</button
+              ><button type="button" role="menuitem" tabindex="-1">Share example</button>
+            </div>
+          </div>
+          <p id="menu-status" role="status">Actions demonstrate selection only.</p>
+        </section>
+        <section class="card">
+          <p class="number">04 / TABS</p>
+          <h2>One view at a time</h2>
+          <div role="tablist" aria-label="Recipe details">
+            <button
+              id="tab-overview"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-overview"
+            >
+              Overview</button
+            ><button
+              id="tab-keyboard"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-keyboard"
+              tabindex="-1"
+            >
+              Keyboard</button
+            ><button
+              id="tab-source"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-source"
+              tabindex="-1"
+            >
+              Source
+            </button>
+          </div>
+          <div id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+            <p>Tabs use automatic activation. Moving focus changes the visible panel.</p>
+          </div>
+          <div
+            id="panel-keyboard"
+            role="tabpanel"
+            aria-labelledby="tab-keyboard"
+            tabindex="0"
+            hidden
+          >
+            <p>
+              Left and Right arrows move between tabs. Home selects the first; End selects the last.
+            </p>
+          </div>
+          <div id="panel-source" role="tabpanel" aria-labelledby="tab-source" tabindex="0" hidden>
+            <p>
+              Copy the tab markup and its initialization code from public/app.js. Keep each ID
+              unique.
+            </p>
+          </div>
+        </section>
+        <section class="card wide">
+          <div>
+            <p class="number">05 / NOTIFICATIONS</p>
+            <h2>Updates without interruption</h2>
+            <p>
+              A polite status region announces the result. The message stays until you dismiss it.
+            </p>
+            <button id="notify" class="secondary">Show notification</button>
+          </div>
+          <div class="notification">
+            <p id="toast" role="status" aria-live="polite" aria-atomic="true"></p>
+            <button id="dismiss" class="text-button" hidden>Dismiss notification</button>
+          </div>
+        </section>
+      </div>
+      <footer>
+        Framework-free examples · MIT licensed · Test with the people who use your product.
+      </footer>
+    </main>
+  </body>
+</html>
