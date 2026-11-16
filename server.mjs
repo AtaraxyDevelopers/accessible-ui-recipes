@@ -8,6 +8,7 @@ export function createServer() {
       '/': ['index.html', 'text/html; charset=utf-8'],
       '/app.js': ['app.js', 'text/javascript'],
       '/style.css': ['style.css', 'text/css'],
+      '/ataraxy-developers-logo.png': ['ataraxy-developers-logo.png', 'image/png'],
     };
     const file = files[req.url];
     if (req.method !== 'GET' || !file) {

@@ -1,6 +1,6 @@
 {
   "name": "@ataraxydevelopers/accessible-ui-recipes",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Five framework-free UI patterns with keyboard and automated accessibility tests.",
   "type": "module",
   "engines": {
